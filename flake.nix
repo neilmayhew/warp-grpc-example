@@ -29,6 +29,7 @@
             };
             compiler-nix-name = "ghc928";
             shell.buildInputs = with final; [
+              protobuf
               haskell.packages.${compiler-nix-name}.proto-lens-protoc
             ];
           };
