@@ -34,5 +34,5 @@ stack exec -- warp-grpc-example
 
 ## Testing
 
-Now you can query it on 127.0.0.1:3000 with TLS, for instance with
-https://github.com/lucasdicioccio/http2-client-grpc-example .
+Now you can query it on `localhost:3000` with TLS, for instance with
+[http2-client-grpc-example](https://github.com/lucasdicioccio/http2-client-grpc-example).

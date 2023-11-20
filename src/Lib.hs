@@ -11,7 +11,7 @@ import Control.Monad (void)
 import Data.ProtoLens.Message (defMessage)
 import Data.ProtoLens.Service.Types (HasMethodImpl (..))
 import Network.Wai.Handler.WarpTLS (defaultTlsSettings)
-import Network.Wai.Handler.Warp (defaultSettings)
+import Network.Wai.Handler.Warp (defaultSettings, setHost, setPort)
 import Network.GRPC.HTTP2.ProtoLens (RPC (..))
 import Network.GRPC.HTTP2.Encoding (gzip)
 import Proto.Protos.Grpcbin (GRPCBin, DummyMessage, EmptyMessage, IndexReply, SpecificErrorRequest)
@@ -21,7 +21,7 @@ import System.Environment (getArgs)
 someFunc :: IO ()
 someFunc = do
     args <- getArgs
-    runGrpc defaultTlsSettings defaultSettings (handlers args) [gzip]
+    runGrpc defaultTlsSettings (setHost "*6" defaultSettings) (handlers args) [gzip]
 
 handlers :: [String] -> [ServiceHandler]
 handlers args =
